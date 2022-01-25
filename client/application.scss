@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+
+body {
+    background: #ef830f;
+  }
+
+  
+html {
+  font-size: 1vw;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #7ee8fa;
+  background-image: linear-gradient(315deg, #7ee8fa 0%, #80ff72 74%);
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  text-align:center;   
+}
+
+h1 {
+  text-align:center;
+  font-size: 4vw;
+  font-family: 'Fjalla One', sans-serif;
+}
+
+#innerTable {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 10%;
+  text-align: center;
+}
+
+#logbutton:hover{
+  background-color: #63a4ff;
+  border: 2px solid #7ee8fa;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#logbutton{
+  background-color: #63d471;
+  border-radius: 3px;
+  margin: 2px;
+  border: 1px solid black;
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.1vw;
+  transition: all 0.5s ease;
+}
+
+#add:hover{
+  background-color: #63a4ff;
+  border: 2px solid #7ee8fa;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#add{
+  background-color: #63d471;
+  border-radius: 3px;
+  margin: 2px;
+  border: 1px solid black;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2vw;
+  transition: all 0.5s ease;
+}
+
+#position, #numcontracts, #strategy, #datebtosto, #datebtcstc {
+font-size: 1.1vw;
+font-family: 'Poppins', sans-serif;
+cursor: pointer;
+}
+
+
+#homebuttonmain:hover{
+  background-color: #63a4ff;
+  border: 2px solid #7ee8fa;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#homebuttonmain{
+  background-color: #63d471;
+  border-radius: 3px;
+  margin: 2px;
+  border: 1px solid black;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2vw;
+  transition: all 0.5s ease;
+  top: 30%;
+  left: 44%;
+  position: absolute;
+}
+
+#homebutton:hover{
+  background-color: #63a4ff;
+  border: 2px solid #7ee8fa;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#homebutton{
+  background-color: #63d471;
+  border-radius: 3px;
+  margin: 2px;
+  border: 1px solid black;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2vw;
+  transition: all 0.5s ease;
+}
+
+.btn {
+  background-color: rgb(14, 183, 20);
+  border: none;
+  color: white;
+  border-radius: 3px;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn:hover{
+  background-color: #fe0000;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#getstarted:hover{
+  background-color: #63a4ff;
+  border: 2px solid #7ee8fa;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#getstarted{
+  position: absolute;
+  display: inline-block;
+  top: 50%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: white;
+  font: 0/0 a;
+  font-size: 100px;
+}
+
+#myVideo {
+  object-fit: fill;
+  width:100%;
+  height:100%;
+}
+
+.video-container{
+  position: relative;
+}
+
+.caption1 {
+  position: absolute;
+  display: inline-block;
+  top: 50%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: white;
+  font: 0/0 a;
+  font-size: 100px;
+}
+
+.caption2 {
+  font: 16px/1 Helvetica; /* Reset the font property */
+  display: inline-block;
+  vertical-align: middle;
+  text-align:middle;
+  width: 100%;
+}
