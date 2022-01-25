@@ -4,8 +4,9 @@
   "description": "Displays option data on a webpage that gets hydrated upon refresh of the webbrowser.",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack serve",
-    "build": "webpack"
+    "start": "cross-env NODE_ENV=production node server/server.js",
+    "build": "cross-env NODE_ENV=production webpack",
+    "dev": "concurrently \"cross-env NODE_ENV=development nodemon server/server.js\" \"cross-env NODE_ENV=development webpack serve --open --hot\""
   },
   "keywords": [
     "Stocks",
@@ -15,6 +16,7 @@
   "author": "Nico Flores",
   "license": "ISC",
   "dependencies": {
+    "cross-env": "^7.0.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },

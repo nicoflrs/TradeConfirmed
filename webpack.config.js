@@ -3,8 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { env } = require('process')
 
 module.exports = {
-
-    entry: path.join(__dirname, "src", "index.js"),
+  mode: env.NODE_ENV,
+    entry: path.join(__dirname, "index.js"),
     output: {
         path: path.resolve(__dirname, 'build'),
         filename: 'bundle.js',
@@ -25,6 +25,6 @@ module.exports = {
       },
     plugins: [new HtmlWebpackPlugin({
         title: 'Development',
-        template: path.join(__dirname, "src", "index.html")
+        template: path.join(__dirname, "index.html")
     })],
 }

@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { Component, Fragment } from "react";
+import { render } from "react-dom";
 
 
-<h1>Hello World</h1>
+render(
+    <div className = 'example'>YO</div>
+) 
+    
 
 
 export default App;
