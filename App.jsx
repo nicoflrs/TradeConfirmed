@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from "react";
 import { render } from "react-dom";
-
-
+console.log('hello')
 render(
-    <div className = 'example'>YO</div>
+    <h1>LOL</h1>,
+    document.getElementById("app")
 ) 
     
 
