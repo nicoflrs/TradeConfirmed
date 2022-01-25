@@ -1,0 +1,16 @@
+{
+  "name": "solo-project",
+  "version": "1.0.0",
+  "description": "Displays option data on a webpage that gets hydrated upon refresh of the webbrowser.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Stocks",
+    "Options",
+    "TDAmeritrade"
+  ],
+  "author": "Nico Flores",
+  "license": "ISC"
+}
