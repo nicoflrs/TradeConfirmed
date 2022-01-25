@@ -1,7 +1,7 @@
 import React from 'react';
 
-/*code goes here
 
-*/
+<h1>Hello World</h1>
+
 
 export default App;
