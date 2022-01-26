@@ -8,43 +8,13 @@ class App extends Component {
         render () {
             return (
                 <div>
-                    {/* <Grid /> */}
                     <Submit />
+                    <Log />
                 </div>
             
             )
         }
 }
-
-// class Grid extends Component {
-//     constructor (props) {
-//         super(props);
-//       }
-//       render () {
-//         return <div>
-//             <table border = '1'>
-//             <thead>
-//                 <tr>
-//                     <th>Position</th>
-//                     <th>Number of Contracts</th>
-//                     <th>Strategy</th>
-//                     <th>Date of BTO/STO</th>
-//                     <th>Date of BTC/STC</th>
-//                 </tr>
-//             </thead>
-//             <tbody>
-//                 <tr>
-//                     <td>SPY -400P/+395P</td>
-//                     <td>10</td>
-//                     <td>Put Credit Spread</td>
-//                     <td>1/20/2022</td>
-//                     <td>1/31/2022</td>
-//                 </tr>
-//             </tbody>
-//         </table>
-//         </div>
-//     }
-// }
 
 class Submit extends Component {
     constructor (props) {
@@ -94,4 +64,43 @@ class Submit extends Component {
       }
 }
 
+class Log extends Component {
+    constructor (props) {
+        super(props);
+      }
+    render () {
+        return <a href = 'http://localhost:3000/log'><button>View Log</button></a>
+    }
+}
+
 export default App;
+
+// class Grid extends Component {
+//     constructor (props) {
+//         super(props);
+//       }
+//       render () {
+//         return <div>
+//             <table border = '1'>
+//             <thead>
+//                 <tr>
+//                     <th>Position</th>
+//                     <th>Number of Contracts</th>
+//                     <th>Strategy</th>
+//                     <th>Date of BTO/STO</th>
+//                     <th>Date of BTC/STC</th>
+//                 </tr>
+//             </thead>
+//             <tbody>
+//                 <tr>
+//                     <td>SPY -400P/+395P</td>
+//                     <td>10</td>
+//                     <td>Put Credit Spread</td>
+//                     <td>1/20/2022</td>
+//                     <td>1/31/2022</td>
+//                 </tr>
+//             </tbody>
+//         </table>
+//         </div>
+//     }
+// }

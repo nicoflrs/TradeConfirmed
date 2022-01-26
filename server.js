@@ -19,8 +19,12 @@ app.get('/', (req, res) => {
 })
 
 app.post('/submit-form', controller.addTrade, (req, res) => {
-  console.log('you did it!')
   res.send('doneski')
+})
+
+app.get('/log', controller.viewTrades, (req, res) => {
+  console.log(res.locals.results.rows)
+  return res.send(res.locals.results.rows)
 })
 
 app.listen(3000, () => {
