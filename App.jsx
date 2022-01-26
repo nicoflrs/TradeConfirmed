@@ -94,17 +94,15 @@ class Log extends Component {
             <div>You have no trades logged.</div>
         )
 
-        console.log(this.state.result[0])
         const arr = [];
         for (let i = 0; i < this.state.result.length; i++) {
-            arr.push([<td>{this.state.result[i].position}</td>, <td>{this.state.result[i].numcontracts}</td>, <td>{this.state.result[i].strategy}</td>, <td>{this.state.result[i].datebtosto}</td>, <td>{this.state.result[i].datebtcstc}</td>])
+            arr.push([<tbody id = {this.state.result[i]._id}><td>{this.state.result[i].position}</td><td>{this.state.result[i].numcontracts}</td><td>{this.state.result[i].strategy}</td><td>{this.state.result[i].datebtosto}</td><td>{this.state.result[i].datebtcstc}</td></tbody>])
         }
-        console.log(arr);
+
         const resultArr = [];
         for (let i = 0; i < arr.length; i++) {
-
+        resultArr.push(arr[i])
         }
-        // console.log(this.state.result[0][position])
         return <div>
             <table border = '1'>
             <thead>
@@ -116,42 +114,13 @@ class Log extends Component {
                 <th>Date of BTC/STC</th>
             </tr>
             </thead>
-            <tbody>
-                {arr}
-            </tbody>
+                {resultArr}
             </table>
         </div>
     }
 }
+// submit button, connects to delete functionality, where delete button is equal to id in my tbody
+// add a new controller, put in a delete, and use postman to call the delete onto my server
 
+// put request, access id & the field that was clicked on. need to be able to access the name of the field and the field property
 export default App;
-
-// class Grid extends Component {
-//     constructor (props) {
-//         super(props);
-//       }
-//       render () {
-//         return <div>
-//             <table border = '1'>
-//             <thead>
-//                 <tr>
-//                     <th>Position</th>
-//                     <th>Number of Contracts</th>
-//                     <th>Strategy</th>
-//                     <th>Date of BTO/STO</th>
-//                     <th>Date of BTC/STC</th>
-//                 </tr>
-//             </thead>
-//             <tbody>
-//                 <tr>
-//                     <td>SPY -400P/+395P</td>
-//                     <td>10</td>
-//                     <td>Put Credit Spread</td>
-//                     <td>1/20/2022</td>
-//                     <td>1/31/2022</td>
-//                 </tr>
-//             </tbody>
-//         </table>
-//         </div>
-//     }
-// }
