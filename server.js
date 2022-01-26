@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 })
 
 app.post('/submit-form', controller.addTrade, (req, res) => {
-  // console.log(req.body);
+  console.log('you did it!')
   res.send('doneski')
 })
 

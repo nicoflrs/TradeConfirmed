@@ -63,7 +63,7 @@ class Submit extends Component {
         
             <input 
             type = 'number'
-            name = 'Number of Contracts'
+            name = 'NumContracts'
             required = 'required'
             placeholder = 'enter number of contracts...'
             />
@@ -77,14 +77,14 @@ class Submit extends Component {
         
             <input 
             type = 'date'
-            name = 'Date of BTO/STO'
+            name = 'DateBTOSTO'
             required = 'required'
             placeholder = 'enter BTO/STO date...'
             />
         
             <input 
             type = 'date'
-            name = 'Date of BTC/STC'
+            name = 'DateBTCSTC'
             required = 'required'
             placeholder = 'enter STO/STC date...'
             />
