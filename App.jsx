@@ -100,7 +100,12 @@ class Log extends Component {
         if (!result) return null
 
         if (!result.length) return (
-            <div>You have no trades logged.</div>
+            <div>
+                You have no trades logged.&nbsp;      
+            <Link to = '/'>
+        <button>Return to Home</button>
+            </Link>
+            </div>
         )
 
         const arr = [];
@@ -121,6 +126,11 @@ class Log extends Component {
             </thead>
                 {arr}
             </table>
+            <br/>
+            <Link to = '/'>
+            <button>Return to Home</button>
+            </Link>
+        
         </div>
     }
 }
