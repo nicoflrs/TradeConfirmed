@@ -15,7 +15,7 @@ module.exports = {
   })],
     devServer: {
     proxy: {
-      '/': 'http://localhost:3000'
+      '/server': 'http://localhost:3000'
     }
   },
     module: {
@@ -30,7 +30,10 @@ module.exports = {
               }    
             }
           },
+          {
+            test: /\.scss/,
+            use: ['style-loader', 'css-loader', 'sass-loader'],
+          }
         ]
       }
-   
 }

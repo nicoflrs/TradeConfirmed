@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 class App extends Component {
         render () {
             return (
-                <div>                   
+                <div id = "divApp">                   
         <BrowserRouter>
         <Routes>
         <Route exact path="/" element={<Submit />} />
@@ -19,11 +19,15 @@ class App extends Component {
 }
 
 class Submit extends Component {
+    toggleText = () => {
+        window.alert('Trade has been logged.')
+      }
       render () {
-          return <div>
-              <h2>Inputs</h2>
+          return <div id = "inputs">
+              <h2>Please Enter Inputs Below...</h2>
         <form method="POST" action="/submit-form">
             <input 
+            id = "position"
             type = 'text'
             name = 'Position'
             required = 'required'
@@ -31,13 +35,15 @@ class Submit extends Component {
             />
         
             <input 
+            id = "numcontracts"
             type = 'number'
             name = 'NumContracts'
             required = 'required'
-            placeholder = 'enter number of contracts...'
+            placeholder = 'enter # of contracts...'
             />
         
             <input 
+            id = "strategy"
             type = 'text'
             name = 'Strategy'
             required = 'required'
@@ -45,28 +51,30 @@ class Submit extends Component {
             />
         
             <input 
+            id = "datebtosto"
             type = 'test'
             name = 'DateBTOSTO'
             required = 'required'
             placeholder = 'enter BTO/STO date...'
             class="form-control" 
             onfocus="(this.type='date')" onblur="(this.type='text')" 
-            id="date"
+            // id="date"
             />
         
             <input 
+            id = "datebtcstc"
             type = 'text'
             name = 'DateBTCSTC'
             required = 'required'
             placeholder = 'enter STO/STC date...'
             class="form-control" 
             onfocus="(this.type='date')" onblur="(this.type='text')" 
-            id="date"
+            // id="date"
             />
-            <button type = "submit">Add</button>
+            <button id = "add" type = "submit" onClick = {this.toggleText}>Add</button>
         </form>
         <Link to = 'log'>
-        <button>Fetch Log</button>
+        <button id = "logbutton">View Trading Log</button>
         </Link>
           </div>
       }
@@ -117,7 +125,7 @@ class Log extends Component {
     render () {
         if (!this.state.result) return (
             <div>
-                <h1>Loading log, please wait...</h1>
+                <h1>Loading, please wait...</h1>
             </div>
         )
         const { result } = this.state;
@@ -125,21 +133,21 @@ class Log extends Component {
         if (!result) return null
 
         if (!result.length) return (
-            <div>
+            <div id = "notrades">
                 You have no trades logged.&nbsp;      
             <Link to = '/'>
-        <button>Return to Home</button>
+        <button id = "homebutton">Return to Homepage</button>
             </Link>
             </div>
         )
 
         const arr = [];
         for (let i = 0; i < this.state.result.length; i++) {
-            arr.push([<tbody id = {this.state.result[i]._id}><td id = 'position' onClick = {this.updateRecord}>{this.state.result[i].position}</td><td id = 'numcontracts' onClick = {this.updateRecord}>{this.state.result[i].numcontracts}</td><td id = 'strategy' onClick = {this.updateRecord}>{this.state.result[i].strategy}</td><td id = 'datebtosto' onClick = {this.updateRecord}>{this.state.result[i].datebtosto}</td><td id = 'datebtcstc' onClick = {this.updateRecord}>{this.state.result[i].datebtcstc}</td><button id = {this.state.result[i]._id} onClick = {this.deleteRecord}>delete</button></tbody>])
+            arr.push([<tbody id = {this.state.result[i]._id}><td id = 'position' onClick = {this.updateRecord}>{this.state.result[i].position}</td><td id = 'numcontracts' onClick = {this.updateRecord}>{this.state.result[i].numcontracts}</td><td id = 'strategy' onClick = {this.updateRecord}>{this.state.result[i].strategy}</td><td id = 'datebtosto' onClick = {this.updateRecord}>{this.state.result[i].datebtosto}</td><td id = 'datebtcstc' onClick = {this.updateRecord}>{this.state.result[i].datebtcstc}</td><button class = "btn" id = {this.state.result[i]._id} onClick = {this.deleteRecord}><i class="fa fa-trash"></i></button></tbody>])
         }
 
-        return <div>
-            <table border = '1'>
+        return <div id = "table">
+            <table id = "innerTable" border = '1'>
             <thead>
             <tr>
                 <th>Position</th>
@@ -153,11 +161,10 @@ class Log extends Component {
             </table>
             <br/>
             <Link to = '/'>
-            <button>Return to Home</button>
+            <button id = "homebutton">Return to Homepage</button>
             </Link>
         
         </div>
     }
 }
-// put request, access id & the field that was clicked on. need to be able to access the name of the field and the field property
 export default App;
