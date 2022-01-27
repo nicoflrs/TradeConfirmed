@@ -75,10 +75,11 @@ h1 {
 #position, #numcontracts, #strategy, #datebtosto, #datebtcstc {
 font-size: 1.1vw;
 font-family: 'Poppins', sans-serif;
+cursor: pointer;
 }
 
 
-#add:homebutton{
+#homebutton:hover{
   background-color: #63a4ff;
   border: 2px solid #7ee8fa;
   color: white;
@@ -97,11 +98,18 @@ font-family: 'Poppins', sans-serif;
 }
 
 .btn {
-  background-color: #63a4ff;
+  background-color: rgb(14, 183, 20);
   border: none;
   color: white;
+  border-radius: 3px;
   padding: 12px 16px;
   font-size: 16px;
   cursor: pointer;
-  animation: effect 1s infinite;
+}
+
+.btn:hover{
+  background-color: #fe0000;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
 }

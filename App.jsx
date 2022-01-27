@@ -97,9 +97,11 @@ class Log extends Component {
 
     deleteRecord = (e) => {
         const item = e.target.getAttribute('id')
+        console.log(item)
         fetch('http://localhost:3000/delete', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({id: item})})
            .then(response => response.json())
            .then((data) => { 
+               console.log(data)
              return this.setState({ result: data })})
     }
 
@@ -143,9 +145,9 @@ class Log extends Component {
 
         const arr = [];
         for (let i = 0; i < this.state.result.length; i++) {
-            arr.push([<tbody id = {this.state.result[i]._id}><td id = 'position' onClick = {this.updateRecord}>{this.state.result[i].position}</td><td id = 'numcontracts' onClick = {this.updateRecord}>{this.state.result[i].numcontracts}</td><td id = 'strategy' onClick = {this.updateRecord}>{this.state.result[i].strategy}</td><td id = 'datebtosto' onClick = {this.updateRecord}>{this.state.result[i].datebtosto}</td><td id = 'datebtcstc' onClick = {this.updateRecord}>{this.state.result[i].datebtcstc}</td><button class = "btn" id = {this.state.result[i]._id} onClick = {this.deleteRecord}><i class="fa fa-trash"></i></button></tbody>])
+            arr.push([<tbody id = {this.state.result[i]._id}><td id = 'position' onClick = {this.updateRecord}>{this.state.result[i].position}</td><td id = 'numcontracts' onClick = {this.updateRecord}>{this.state.result[i].numcontracts}</td><td id = 'strategy' onClick = {this.updateRecord}>{this.state.result[i].strategy}</td><td id = 'datebtosto' onClick = {this.updateRecord}>{this.state.result[i].datebtosto}</td><td id = 'datebtcstc' onClick = {this.updateRecord}>{this.state.result[i].datebtcstc}</td><button class = "btn" id = {this.state.result[i]._id} onClick = {this.deleteRecord}>delete</button></tbody>])
         }
-
+{/* <i class="fa fa-trash"></i> */}
         return <div id = "table">
             <table id = "innerTable" border = '1'>
             <thead>
