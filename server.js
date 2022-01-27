@@ -19,7 +19,8 @@ app.get('/', (req, res) => {
 })
 
 app.post('/submit-form', controller.addTrade, (req, res) => {
-  res.send('doneski')
+  // res.send('Trade Submitted.')
+  return res.redirect('http://localhost:3000/');
 })
 
 app.get('/log', controller.viewTrades, (req, res) => {
@@ -27,6 +28,11 @@ app.get('/log', controller.viewTrades, (req, res) => {
 })
 
 app.post('/delete', controller.deleteTrade, controller.viewTrades, (req, res) => {
+  return res.send(res.locals.results.rows)
+})
+
+app.put('/update', controller.updateTrade, controller.viewTrades, (req, res) => {
+  // console.log(req.body); // { columnName: 'numcontracts', _id: '67', text: 'hello' },
   return res.send(res.locals.results.rows)
 })
 

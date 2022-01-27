@@ -3,7 +3,7 @@ const db = require('./model');
 const controller = {};
 
 controller.addTrade = (req, res, next) => {
-    // console.log(req.body);
+    console.log('here');
     const {Position, NumContracts, Strategy, DateBTOSTO, DateBTCSTC} = req.body;
   const addChar =   
     `INSERT INTO public.trading (position, numcontracts, strategy, datebtosto, datebtcstc)
@@ -31,4 +31,17 @@ controller.deleteTrade = (req, res, next) => {
   })
 }
 
+controller.updateTrade = (req, res, next) => {
+  const updateQuery = 
+  `UPDATE public.trading
+  SET ${req.body.columnName} = '${req.body.text}'
+  WHERE _id = ${req.body._id};`
+
+  console.log('henlo', req.body);
+
+  db.query(updateQuery)
+  .then(data => {
+    return next();
+  })
+ }
 module.exports = controller;

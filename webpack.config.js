@@ -9,6 +9,15 @@ module.exports = {
         path: path.resolve(__dirname, 'build'),
         filename: 'bundle.js',
     },
+    plugins: [new HtmlWebpackPlugin({
+      title: 'Development',
+      template: path.join(__dirname, "index.html")
+  })],
+    devServer: {
+    proxy: {
+      '/': 'http://localhost:3000'
+    }
+  },
     module: {
         rules: [
           {
@@ -22,9 +31,6 @@ module.exports = {
             }
           },
         ]
-      },
-    plugins: [new HtmlWebpackPlugin({
-        title: 'Development',
-        template: path.join(__dirname, "index.html")
-    })],
+      }
+   
 }

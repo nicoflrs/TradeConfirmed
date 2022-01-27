@@ -21,13 +21,13 @@ class App extends Component {
 class Submit extends Component {
       render () {
           return <div>
-              <h2>Add a trade</h2>
+              <h2>Inputs</h2>
         <form method="POST" action="/submit-form">
             <input 
             type = 'text'
             name = 'Position'
             required = 'required'
-            placeholder = 'enter a position...'
+            placeholder = 'enter position...'
             />
         
             <input 
@@ -45,17 +45,23 @@ class Submit extends Component {
             />
         
             <input 
-            type = 'date'
+            type = 'test'
             name = 'DateBTOSTO'
             required = 'required'
             placeholder = 'enter BTO/STO date...'
+            class="form-control" 
+            onfocus="(this.type='date')" onblur="(this.type='text')" 
+            id="date"
             />
         
             <input 
-            type = 'date'
+            type = 'text'
             name = 'DateBTCSTC'
             required = 'required'
             placeholder = 'enter STO/STC date...'
+            class="form-control" 
+            onfocus="(this.type='date')" onblur="(this.type='text')" 
+            id="date"
             />
             <button type = "submit">Add</button>
         </form>
@@ -89,6 +95,25 @@ class Log extends Component {
              return this.setState({ result: data })})
     }
 
+    updateRecord = (e) => {
+        const item = e.target.getAttribute('id');
+        const parentID = e.target.parentNode.id;
+        const clientInput = window.prompt('Please update the selected field with a new input.');
+        console.log(item, parentID);
+        console.log(clientInput);
+
+        const requestOptions = {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ columnName: item, _id: parentID, text: clientInput })
+        };
+        fetch('http://localhost:3000/update', requestOptions)
+            .then(response => response.json())
+            .then((data) => { 
+                return this.setState({ result: data })})
+
+    }
+
     render () {
         if (!this.state.result) return (
             <div>
@@ -110,7 +135,7 @@ class Log extends Component {
 
         const arr = [];
         for (let i = 0; i < this.state.result.length; i++) {
-            arr.push([<tbody id = {this.state.result[i]._id}><td>{this.state.result[i].position}</td><td>{this.state.result[i].numcontracts}</td><td>{this.state.result[i].strategy}</td><td>{this.state.result[i].datebtosto}</td><td>{this.state.result[i].datebtcstc}</td><button id = {this.state.result[i]._id} onClick = {this.deleteRecord}>delete</button></tbody>])
+            arr.push([<tbody id = {this.state.result[i]._id}><td id = 'position' onClick = {this.updateRecord}>{this.state.result[i].position}</td><td id = 'numcontracts' onClick = {this.updateRecord}>{this.state.result[i].numcontracts}</td><td id = 'strategy' onClick = {this.updateRecord}>{this.state.result[i].strategy}</td><td id = 'datebtosto' onClick = {this.updateRecord}>{this.state.result[i].datebtosto}</td><td id = 'datebtcstc' onClick = {this.updateRecord}>{this.state.result[i].datebtcstc}</td><button id = {this.state.result[i]._id} onClick = {this.deleteRecord}>delete</button></tbody>])
         }
 
         return <div>
@@ -134,8 +159,5 @@ class Log extends Component {
         </div>
     }
 }
-// submit button, connects to delete functionality, where delete button is equal to id in my tbody
-// add a new controller, put in a delete, and use postman to call the delete onto my server
-
 // put request, access id & the field that was clicked on. need to be able to access the name of the field and the field property
 export default App;
