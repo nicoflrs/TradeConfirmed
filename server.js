@@ -23,7 +23,10 @@ app.post('/submit-form', controller.addTrade, (req, res) => {
 })
 
 app.get('/log', controller.viewTrades, (req, res) => {
-  console.log(res.locals.results.rows)
+  return res.send(res.locals.results.rows)
+})
+
+app.post('/delete', controller.deleteTrade, controller.viewTrades, (req, res) => {
   return res.send(res.locals.results.rows)
 })
 

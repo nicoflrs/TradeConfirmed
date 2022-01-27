@@ -80,6 +80,15 @@ class Log extends Component {
           .then((data) => { 
             return this.setState({ result: data })});
       }
+
+    deleteRecord = (e) => {
+        const item = e.target.getAttribute('id')
+        fetch('http://localhost:3000/delete', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({id: item})})
+           .then(response => response.json())
+           .then((data) => { 
+             return this.setState({ result: data })})
+    }
+
     render () {
         if (!this.state.result) return (
             <div>
@@ -96,13 +105,9 @@ class Log extends Component {
 
         const arr = [];
         for (let i = 0; i < this.state.result.length; i++) {
-            arr.push([<tbody id = {this.state.result[i]._id}><td>{this.state.result[i].position}</td><td>{this.state.result[i].numcontracts}</td><td>{this.state.result[i].strategy}</td><td>{this.state.result[i].datebtosto}</td><td>{this.state.result[i].datebtcstc}</td></tbody>])
+            arr.push([<tbody id = {this.state.result[i]._id}><td>{this.state.result[i].position}</td><td>{this.state.result[i].numcontracts}</td><td>{this.state.result[i].strategy}</td><td>{this.state.result[i].datebtosto}</td><td>{this.state.result[i].datebtcstc}</td><button id = {this.state.result[i]._id} onClick = {this.deleteRecord}>delete</button></tbody>])
         }
 
-        const resultArr = [];
-        for (let i = 0; i < arr.length; i++) {
-        resultArr.push(arr[i])
-        }
         return <div>
             <table border = '1'>
             <thead>
@@ -114,7 +119,7 @@ class Log extends Component {
                 <th>Date of BTC/STC</th>
             </tr>
             </thead>
-                {resultArr}
+                {arr}
             </table>
         </div>
     }

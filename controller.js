@@ -23,4 +23,12 @@ controller.viewTrades = (req, res, next) => {
     });
 }
 
+controller.deleteTrade = (req, res, next) => {
+  const deleteQuery = `DELETE FROM public.trading WHERE _id = ${req.body.id};`
+  db.query(deleteQuery)
+  .then(data => {
+    return next();
+  })
+}
+
 module.exports = controller;
