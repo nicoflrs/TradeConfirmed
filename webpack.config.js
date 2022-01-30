@@ -21,6 +21,7 @@ module.exports = {
       ,
       proxy:  { 
         '/' : 'http://localhost:3000',
+        '/homepage':'http://localhost:3000',
         '/log':'http://localhost:3000'
               },
     },
