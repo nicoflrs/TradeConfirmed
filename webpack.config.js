@@ -4,20 +4,26 @@ const { env } = require('process')
 
 module.exports = {
   mode: env.NODE_ENV,
-    entry: path.join(__dirname, "index.js"),
-    output: {
-        path: path.resolve(__dirname, 'build'),
-        filename: 'bundle.js',
-    },
-    plugins: [new HtmlWebpackPlugin({
-      title: 'Development',
-      template: path.join(__dirname, "index.html")
+  entry: { src: './client/index.js' },
+  plugins: [new HtmlWebpackPlugin({
+    title: 'Development',
+    template: './client/index.html'
   })],
+  output: {
+      path: path.resolve(__dirname, 'build'),
+      filename: 'bundle.js',
+    },
     devServer: {
-    proxy: {
-      '/server': 'http://localhost:3000'
-    }
-  },
+      static: {
+        directory: path.resolve(__dirname, 'build'),
+        publicPath: '/build',
+      }
+      ,
+      proxy:  { 
+        '/' : 'http://localhost:3000',
+        '/log':'http://localhost:3000'
+              },
+    },
     module: {
         rules: [
           {
@@ -33,6 +39,15 @@ module.exports = {
           {
             test: /\.scss/,
             use: ['style-loader', 'css-loader', 'sass-loader'],
+          },
+          {
+            test: /\.(mp4|svg|png|jpe?g|gif)$/,
+            use: {
+              loader: "file-loader",
+              options: {
+                name: "[name].[hash].[ext]"
+              }
+            }
           }
         ]
       }
