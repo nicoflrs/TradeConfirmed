@@ -199,15 +199,39 @@ class Log extends Component {
 }
 
 class Auth extends Component {
+    constructor(props) {
+        super(props);
+    
+        this.state = {
+          result: {}
+        };
+      }
     componentDidMount() {
         fetch('http://localhost:3000/homepage/auth')
           .then(response => response.json())
           .then((data) => { 
-            console.log(data)});
+            return this.setState({ result: data })});
       }
     render () {
+        if (!this.state.result) return (
+            <div>
+                <h1>Loading, please wait...</h1>
+            </div>
+        )
+        const { result } = this.state;
+
+        if (!result) return null
+
+        if (!result.length) return (
+            <div id = "notrades">
+                Data is not yet available.&nbsp;      
+            <Link to = '/homepage'>
+        <button id = "homebutton">Return to Homepage</button>
+            </Link>
+            </div>
+        )
         return <div>
-            in progress :)
+            {this.state}
             <Link to = '/homepage'>
             <button id = "homebutton">Return to Homepage</button>
             </Link>
