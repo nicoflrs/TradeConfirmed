@@ -12,6 +12,7 @@ class App extends Component {
         <Route exact path="/" element={<Intro />} />
         <Route exact path="/homepage" element={<Submit />} />
         <Route exact path="/homepage/log" element={<Log />} />
+        <Route exact path="/homepage/auth" element={<Auth />} />
         </Routes>
        </BrowserRouter>
                 </div>
@@ -100,6 +101,9 @@ class Submit extends Component {
         </form>
         <Link to = 'log'>
         <button id = "logbutton">View Trading Log</button>
+        </Link>
+        <Link to = 'auth'>
+        <button id = "logbutton">View TDA API</button>
         </Link>
           </div>
       }
@@ -193,4 +197,22 @@ class Log extends Component {
         </div>
     }
 }
+
+class Auth extends Component {
+    componentDidMount() {
+        fetch('http://localhost:3000/homepage/auth')
+          .then(response => response.json())
+          .then((data) => { 
+            console.log(data)});
+      }
+    render () {
+        return <div>
+            in progress :)
+            <Link to = '/homepage'>
+            <button id = "homebutton">Return to Homepage</button>
+            </Link>
+            </div>
+
+}}
+
 export default App;
