@@ -6,28 +6,34 @@
   "scripts": {
     "start": "cross-env NODE_ENV=production node server/server.js",
     "build": "cross-env NODE_ENV=production webpack",
-    "dev": "concurrently \"cross-env NODE_ENV=development nodemon server/server.js\" \"cross-env NODE_ENV=development webpack serve --open --hot\""
+    "dev": "concurrently \"cross-env NODE_ENV=development nodemon server/server.js\" \"cross-env NODE_ENV=development webpack serve --open --hot\"",
+    "test": "jest"
   },
   "keywords": [
     "Stocks",
     "Options",
     "TDAmeritrade"
   ],
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
   "author": "Nico Flores",
   "license": "ISC",
   "dependencies": {
+    "@testing-library/jest-dom": "^5.16.3",
     "body-parser": "^1.19.1",
     "concurrently": "^7.0.0",
     "cross-env": "^7.0.3",
     "css-loader": "^6.5.1",
     "express": "^4.17.2",
     "file-loader": "^6.2.0",
+    "jest": "^27.5.1",
     "node-fetch": "^3.2.0",
     "nodemon": "^2.0.15",
     "pg": "^8.7.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-router-dom": "^6.2.1",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.3.0",
     "regenerator-runtime": "^0.13.9",
     "request": "^2.88.2",
     "sass": "^1.49.0",
@@ -40,6 +46,7 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@babel/runtime": "^7.16.7",
+    "@testing-library/react": "^13.0.0",
     "babel-loader": "^8.2.3",
     "html-webpack-plugin": "^5.5.0",
     "webpack": "^5.67.0",

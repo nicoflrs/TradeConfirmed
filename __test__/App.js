@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { render } from "react-dom";
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
-import backgroundVideo from './video.mp4';
+// import backgroundVideo from './video.mp4';
 
 class App extends Component {
         render () {
@@ -27,7 +27,7 @@ class Intro extends Component {
             <div class = "video-container">
             <video autoPlay muted loop id="myVideo">
                 
-            <source src={backgroundVideo} type="video/mp4"/>
+            {/* <source src={backgroundVideo} type="video/mp4"/> */}
             </video>
             <div class = "caption1">
                 welcome to options tracker.                    
