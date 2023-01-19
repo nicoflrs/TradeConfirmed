@@ -7,8 +7,12 @@ Steps to run on local environment:
    npm install
    ```
 
-2.) Run on local dev server
+2.) Run build
+   ```sh
+   npm run build
+   ```
+
+3.) Serve files to your localhost
    ```sh
    npm run dev
    ```
-
