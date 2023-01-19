@@ -4,7 +4,6 @@ const https = require('https')
 const controller = {};
 
 controller.addTrade = (req, res, next) => {
-    console.log('here');
     const {Position, NumContracts, Strategy, DateBTOSTO, DateBTCSTC} = req.body;
   const addChar =   
     `INSERT INTO public.trading (position, numcontracts, strategy, datebtosto, datebtcstc)
@@ -45,9 +44,7 @@ controller.updateTrade = (req, res, next) => {
 
 controller.getOptionsData = (req, res, next) => {
   var todayDate = new Date().toISOString().slice(0, 10);
-  console.log(todayDate);
-  // console.log(res.locals.spy = 'lol');
-  const url = `https://api.tdameritrade.com/v1/marketdata/chains?apikey=${process.env.CONSUMER_KEY}&symbol=SPY&toDate=` + todayDate;
+  const url = `https://api.tdameritrade.com/v1/marketdata/chains?apikey=${process.env.CONSUMER_KEY}&symbol=SPY&toDate=${todayDate}`;
   let data = '';
   https.get(url, response => {
     response.on('data', chunk => {
@@ -61,11 +58,6 @@ controller.getOptionsData = (req, res, next) => {
   }).on('error', err => {
     console.log(err.message);
   })
-  // res.locals.spy = data
-  // console.log(res.locals.spy)
-  // res.locals.spy = data//{symbol: data.symbol, tradingPrice: data.underlyingPrice, daysToExpiration:data.daysToExpiration, putStrikes: data.putExpDateMap, callStrikes: data.callExpDateMap}
-  // next();
-  
 }
 
 module.exports = controller;

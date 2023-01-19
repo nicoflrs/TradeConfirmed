@@ -36,7 +36,6 @@ app.put('/update', controller.updateTrade, controller.viewTrades, (req, res) => 
 })
 
 app.get('/homepage/auth', controller.getOptionsData, (req, res) => {
-  // console.log(res.locals.spy)
   return res.send(res.locals.spy)
 });
 

@@ -126,11 +126,9 @@ class Log extends Component {
 
     deleteRecord = (e) => {
         const item = e.target.getAttribute('id')
-        console.log(item)
         fetch('http://localhost:3000/delete', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({id: item})})
            .then(response => response.json())
            .then((data) => { 
-               console.log(data)
              return this.setState({ result: data })})
     }
 
@@ -138,8 +136,6 @@ class Log extends Component {
         const item = e.target.getAttribute('id');
         const parentID = e.target.parentNode.id;
         const clientInput = window.prompt('Please update the selected field with a new input.');
-        console.log(item, parentID);
-        console.log(clientInput);
 
         const requestOptions = {
             method: 'PUT',
