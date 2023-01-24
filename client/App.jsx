@@ -12,7 +12,6 @@ class App extends Component {
         <Route exact path="/" element={<Intro />} />
         <Route exact path="/homepage" element={<Submit />} />
         <Route exact path="/homepage/log" element={<Log />} />
-        <Route exact path="/homepage/auth" element={<Auth />} />
         </Routes>
        </BrowserRouter>
                 </div>
@@ -84,7 +83,6 @@ class Submit extends Component {
             placeholder = 'enter BTO/STO date...'
             class="form-control" 
             onfocus="(this.type='date')" onblur="(this.type='text')" 
-            // id="date"
             />
         
             <input 
@@ -95,15 +93,11 @@ class Submit extends Component {
             placeholder = 'enter STO/STC date...'
             class="form-control" 
             onfocus="(this.type='date')" onblur="(this.type='text')" 
-            // id="date"
             />
             <button id = "add" type = "submit" onClick = {this.toggleText}>Add</button>
         </form>
         <Link to = 'log'>
         <button id = "logbutton">View Trading Log</button>
-        </Link>
-        <Link to = 'auth'>
-        <button id = "logbutton">View TDA API</button>
         </Link>
           </div>
       }
@@ -193,46 +187,5 @@ class Log extends Component {
         </div>
     }
 }
-
-class Auth extends Component {
-    constructor(props) {
-        super(props);
-    
-        this.state = {
-          result: {}
-        };
-      }
-    componentDidMount() {
-        fetch('http://localhost:3000/homepage/auth')
-          .then(response => response.json())
-          .then((data) => { 
-            return this.setState({ result: data })});
-      }
-    render () {
-        if (!this.state.result) return (
-            <div>
-                <h1>Loading, please wait...</h1>
-            </div>
-        )
-        const { result } = this.state;
-
-        if (!result) return null
-
-        if (!result.length) return (
-            <div id = "notrades">
-                Data is not yet available.&nbsp;      
-            <Link to = '/homepage'>
-        <button id = "homebutton">Return to Homepage</button>
-            </Link>
-            </div>
-        )
-        return <div>
-            {this.state}
-            <Link to = '/homepage'>
-            <button id = "homebutton">Return to Homepage</button>
-            </Link>
-            </div>
-
-}}
 
 export default App;

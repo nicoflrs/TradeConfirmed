@@ -34,10 +34,6 @@ app.put('/update', controller.updateTrade, controller.viewTrades, (req, res) => 
   return res.send(res.locals.results.rows)
 })
 
-app.get('/homepage/auth', controller.getOptionsData, (req, res) => {
-  return res.send(res.locals.spy)
-});
-
 app.listen(3000, () => {
   console.log("listening on port 3000");
 })

@@ -42,22 +42,4 @@ controller.updateTrade = (req, res, next) => {
   })
  }
 
-controller.getOptionsData = (req, res, next) => {
-  var todayDate = new Date().toISOString().slice(0, 10);
-  const url = `https://api.tdameritrade.com/v1/marketdata/chains?apikey=${process.env.CONSUMER_KEY}&symbol=SPY&toDate=${todayDate}`;
-  let data = '';
-  https.get(url, response => {
-    response.on('data', chunk => {
-      data += chunk;
-    });
-    response.on('end', () => {
-      data = JSON.parse(data);
-      res.locals.spy = data
-      next()
-    })
-  }).on('error', err => {
-    console.log(err.message);
-  })
-}
-
 module.exports = controller;
