@@ -5,7 +5,6 @@ const controller = require('./controllers/controller.js');
 const fs = require('fs');
 const request = require('request');
 const redirect_uri = 'http://localhost:3000/homepage/auth';
-require('dotenv').config()
 
 app.use(express.json())
 
