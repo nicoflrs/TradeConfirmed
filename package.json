@@ -2,7 +2,7 @@
   "name": "solo-project",
   "version": "1.0.0",
   "description": "Displays option data on a webpage that gets hydrated upon refresh of the webbrowser.",
-  "main": "../client/index.js",
+  "main": "../client/app.js",
   "scripts": {
     "start": "cross-env NODE_ENV=production node server/server.js",
     "build": "cross-env NODE_ENV=production webpack",
@@ -35,7 +35,7 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.3.0",
-    "regenerator-runtime": "^0.13.9",
+    "regenerator-runtime": "^0.13.11",
     "request": "^2.88.2",
     "sass": "^1.49.0",
     "sass-loader": "^12.4.0",

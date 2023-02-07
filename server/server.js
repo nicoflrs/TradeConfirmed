@@ -2,9 +2,6 @@ const express = require('express');
 const app = express()
 const path = require('path');
 const controller = require('./controllers/controller.js');
-const fs = require('fs');
-const request = require('request');
-const redirect_uri = 'http://localhost:3000/homepage/auth';
 
 app.use(express.json())
 

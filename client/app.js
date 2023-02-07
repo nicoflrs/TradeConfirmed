@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import App from './/App.jsx';
+import Routes from './Routes.jsx';
 import styles from './/application.scss';
 
-render(<App />, document.getElementById('app'));
+render(<Routes />, document.getElementById('app'));
