@@ -4,16 +4,15 @@ import Homepage from './components/Homepage.jsx'
 import Form from './components/Form.jsx'
 import Log from './components/Log.jsx'
 
-const App = () => (
+const AppRoutes = () => 
   <div id="divApp">
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/homepage" element={<Form />} />
-        <Route path="/homepage/log" element={<Log />} />
+        <Route exact path="/" element={<Homepage />} />
+        <Route exact path="/homepage" element={<Form />} />
+        <Route exact path="/homepage/log" element={<Log />} />
       </Routes>
     </BrowserRouter>
   </div>
-);
 
-export default App;
+export default AppRoutes;
