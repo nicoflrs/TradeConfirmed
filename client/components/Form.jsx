@@ -3,8 +3,12 @@ import { Link } from 'react-router-dom';
 
 const Form = () => {
 
-  const toggleText = () => {
+  const tradeLogSuccess = () => {
     window.alert('Trade has been logged.');
+  };
+
+  const tradeLogFailure = () => {
+    window.alert('Incomplete form - Please try again.');
   };
 
   return (
@@ -55,7 +59,21 @@ const Form = () => {
           class="form-control"
           onfocus="(this.type='date')" onblur="(this.type='text')"
         />
-        <button id="add" type="submit" onClick={toggleText}>Add</button>
+        <button id="add" type="submit" onClick={(e) => {
+          if (document.getElementById("position").value && document.getElementById("numcontracts").value && document.getElementById("strategy").value && document.getElementById("datebtosto").value && document.getElementById("datebtcstc").value) {
+            tradeLogSuccess()
+            setTimeout(() => {
+              document.getElementById("position").value = ''
+              document.getElementById("numcontracts").value = ''
+              document.getElementById("strategy").value = ''
+              document.getElementById("datebtosto").value = ''
+              document.getElementById("datebtcstc").value = ''
+            }, 0)
+          }
+          else {
+            tradeLogFailure()
+          }
+        }}>Add</button>
       </form>
       <Link to='log'>
         <button id="logbutton">View Trading Log</button>

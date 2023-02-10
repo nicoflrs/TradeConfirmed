@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/submit-form', controller.addTrade, (req, res) => {
-  return res.redirect('http://localhost:3000/');
+  console.log('Success!')
 });
 
 app.get('/log', controller.viewTrades, (req, res) => {
