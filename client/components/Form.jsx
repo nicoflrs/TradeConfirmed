@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { clearInputs, validateInputs } from './helpers/formInputMethods';
 
 const Form = () => {
 
   const tradeLogSuccess = () => {
     window.alert('Trade has been logged.');
+    clearInputs()
   };
 
   const tradeLogFailure = () => {
@@ -59,20 +61,9 @@ const Form = () => {
           class="form-control"
           onfocus="(this.type='date')" onblur="(this.type='text')"
         />
-        <button id="add" type="submit" onClick={(e) => {
-          if (document.getElementById("position").value && document.getElementById("numcontracts").value && document.getElementById("strategy").value && document.getElementById("datebtosto").value && document.getElementById("datebtcstc").value) {
-            tradeLogSuccess()
-            setTimeout(() => {
-              document.getElementById("position").value = ''
-              document.getElementById("numcontracts").value = ''
-              document.getElementById("strategy").value = ''
-              document.getElementById("datebtosto").value = ''
-              document.getElementById("datebtcstc").value = ''
-            }, 0)
-          }
-          else {
-            tradeLogFailure()
-          }
+        <button id="add" type="submit" onClick={() => {
+          const checkSubmission = validateInputs()
+          checkSubmission ? tradeLogSuccess() : tradeLogFailure()
         }}>Add</button>
       </form>
       <Link to='log'>
