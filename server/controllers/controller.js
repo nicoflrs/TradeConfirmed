@@ -1,5 +1,5 @@
 const db = require('../models/model'); 
-const https = require('https')
+const https = require('https');
 
 const controller = {};
 
@@ -12,7 +12,7 @@ controller.addTrade = (req, res, next) => {
     .then(data => {
       return next();
     });
-}
+};
 
 controller.viewTrades = (req, res, next) => {
   const dbQuery = `select * from public.trading`;
@@ -21,15 +21,15 @@ controller.viewTrades = (req, res, next) => {
       res.locals.results = data;
       return next();
     });
-}
+};
 
 controller.deleteTrade = (req, res, next) => {
   const deleteQuery = `DELETE FROM public.trading WHERE _id = ${req.body.id};`
   db.query(deleteQuery)
   .then(data => {
     return next();
-  })
-}
+  });
+};
 
 controller.updateTrade = (req, res, next) => {
   const updateQuery = 
@@ -39,7 +39,7 @@ controller.updateTrade = (req, res, next) => {
   db.query(updateQuery)
   .then(data => {
     return next();
-  })
- }
+  });
+ };
 
 module.exports = controller;

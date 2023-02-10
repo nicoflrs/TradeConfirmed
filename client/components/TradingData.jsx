@@ -1,5 +1,5 @@
 import React from 'react';
-import { deleteRecord, updateRecord } from "./helpers/logInteractionMethods";
+import { deleteRecord, updateRecord } from './helpers/logInteractionMethods';
 
 const TradingData = ({ result, setResult }) => {
   const arr = [];

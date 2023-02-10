@@ -1,5 +1,5 @@
 const { Pool } = require('pg');
-require('dotenv').config()
+require('dotenv').config();
 
 const PG_URI = `${process.env.PSQL_KEY}`;
 

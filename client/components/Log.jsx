@@ -1,28 +1,23 @@
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import TradingData from "./TradingData.jsx";
+import React, { useEffect, useState } from 'react';
+import TradingData from './TradingData.jsx';
+import ReturnButton from './ReturnButton.jsx'
+import { fetchRecords } from './helpers/logInteractionMethods';
 
 const Log = () => {
   const [result, setResult] = useState([]);
-  const navigate = useNavigate()
-  
-  const returnToForm = () => {
-    navigate('/homepage');
-  };
 
-  useEffect(async () => {
-    const data = await fetch('/log');
-    const parsedData = await data.json();
-    setResult(parsedData);
+  useEffect(() => {
+    (async () => {
+      const data = await fetchRecords()
+      setResult(data);    
+    })()
   }, []);
 
   return !result.length
     ? (
       <div id="notrades">
         You have no trades logged.&nbsp;
-        {/* <Link to='/'> */}
-          <button id="homebutton" onClick={returnToForm}>Return to Homepage</button>
-        {/* </Link> */}
+        <ReturnButton />
       </div>
     )
     : (
@@ -43,9 +38,7 @@ const Log = () => {
           />
         </table>
         <br />
-        {/* <Link to='/'> */}
-          <button id="homebutton" onClick={returnToForm}>Return to Homepage</button>
-        {/* </Link> */}
+        <ReturnButton />
       </div>
     );
 };

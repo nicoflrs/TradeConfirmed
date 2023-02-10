@@ -1,4 +1,4 @@
-import 'regenerator-runtime/runtime'
+import 'regenerator-runtime/runtime';
 
 export const deleteRecord = async (e) => {
   const item = e.target.getAttribute('id');
@@ -21,4 +21,10 @@ export const updateRecord = async (e) => {
   const result = await fetch('/update', requestOptions);
   const parsedResult = await result.json();
   return parsedResult;
+};
+
+export const fetchRecords = async () => {
+  const data = await fetch('/log');
+  const parsedData = await data.json();
+  return parsedData;
 };
