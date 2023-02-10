@@ -6,7 +6,7 @@ const Form = () => {
 
   const tradeLogSuccess = () => {
     window.alert('Trade has been logged.');
-    clearInputs()
+    clearInputs();
   };
 
   const tradeLogFailure = () => {
@@ -62,8 +62,8 @@ const Form = () => {
           onfocus="(this.type='date')" onblur="(this.type='text')"
         />
         <button id="add" type="submit" onClick={() => {
-          const checkSubmission = validateInputs()
-          checkSubmission ? tradeLogSuccess() : tradeLogFailure()
+          const checkSubmission = validateInputs();
+          checkSubmission ? tradeLogSuccess() : tradeLogFailure();
         }}>Add</button>
       </form>
       <Link to='log'>
