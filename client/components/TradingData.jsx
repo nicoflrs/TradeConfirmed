@@ -11,7 +11,7 @@ const TradingData = ({ result, setResult }) => {
             id='position'
             onClick={async (e) => {
               const results = await updateRecord(e)
-              setResult(results)
+              results !== undefined && setResult(results)
             }}
           >{result[i].position}
           </td>
@@ -19,7 +19,7 @@ const TradingData = ({ result, setResult }) => {
             id='numcontracts'
             onClick={async (e) => {
               const results = await updateRecord(e)
-              setResult(results)
+              results !== undefined && setResult(results)
             }}
           >
             {result[i].numcontracts}
@@ -28,7 +28,7 @@ const TradingData = ({ result, setResult }) => {
             id='strategy'
             onClick={async (e) => {
               const results = await updateRecord(e)
-              setResult(results)
+              results !== undefined && setResult(results)
             }}
           >
             {result[i].strategy}
@@ -37,7 +37,7 @@ const TradingData = ({ result, setResult }) => {
             id='datebtosto'
             onClick={async (e) => {
               const results = await updateRecord(e)
-              setResult(results)
+              results !== undefined && setResult(results)
             }}
           >
             {result[i].datebtosto}
@@ -46,7 +46,7 @@ const TradingData = ({ result, setResult }) => {
             id='datebtcstc'
             onClick={async (e) => {
               const results = await updateRecord(e)
-              setResult(results)
+              results !== undefined && setResult(results)
             }}
           >
             {result[i].datebtcstc}
