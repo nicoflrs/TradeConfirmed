@@ -6,10 +6,7 @@ const TradingData = ({ result, setResult }) => {
 
   for (let i = 0; i < result.length; i++) {
     arr.push(
-      [
-        <tbody
-          id={result[i]._id}
-        >
+      [<tr id={result[i]._id}>
           <td
             id='position'
             onClick={async (e) => {
@@ -62,15 +59,14 @@ const TradingData = ({ result, setResult }) => {
               setResult(results)
             }}
           >delete
-          </button>
-        </tbody>]
+          </button></tr>]
     );
   };
 
   return (
-    <>
+    <tbody>
       {arr}
-    </>
+    </tbody>
   );
 };
 
