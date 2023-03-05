@@ -62,6 +62,25 @@ h1 {
   transition: all 0.5s ease;
 }
 
+#logOut:hover{
+  background-color: #63a4ff;
+  border: 2px solid #7ee8fa;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#logOut{
+  background-color: #63d471;
+  border-radius: 3px;
+  margin: 2px;
+  border: 1px solid black;
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.1vw;
+  transition: all 0.5s ease;
+  left: 50%;
+}
+
 #add:hover{
   background-color: #63a4ff;
   border: 2px solid #7ee8fa;
@@ -105,6 +124,27 @@ cursor: pointer;
   transition: all 0.5s ease;
   top: 30%;
   left: 44%;
+  position: absolute;
+}
+
+#registerbuttonmain:hover{
+  background-color: #63a4ff;
+  border: 2px solid #7ee8fa;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#registerbuttonmain{
+  background-color: #63d471;
+  border-radius: 3px;
+  margin: 2px;
+  border: 1px solid black;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2vw;
+  transition: all 0.5s ease;
+  top: 30%;
+  left: 49%;
   position: absolute;
 }
 
@@ -172,6 +212,19 @@ cursor: pointer;
 
 .video-container{
   position: relative;
+}
+
+.loginContainer{
+  position: absolute;
+  display: inline-block;
+  top: 50%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.loginForm{
+  display: inline-grid;
 }
 
 .caption1 {

@@ -69,6 +69,9 @@ const Form = () => {
       <Link to='log'>
         <button id="logbutton">View Trading Log</button>
       </Link>
+      <Link to='/'>
+        <button id='logOut'>Log out</button>
+      </Link>
     </div>
   );
 };
