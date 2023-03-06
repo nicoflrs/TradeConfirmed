@@ -21,7 +21,7 @@ app.post('/submit-form', tradingController.addTrade, (req, res) => {
   console.log('Success!')
 });
 
-app.get('/log', tradingController.viewTrades, (req, res) => {
+app.post('/log', tradingController.viewTrades, (req, res) => {
   return res.send(res.locals.results.rows);
 });
 
@@ -39,7 +39,12 @@ app.post('/register-user', loginController.registerUser, (req, res) => {
 });
 
 app.post('/authenticate-user', loginController.authenticateUser, (req, res) => {
-  return res.send(res);
+  if (res.locals.results.rowCount === 1) {
+    return res.status(200).send(res.locals.results.rows);
+  }
+  else {
+    return res.status(400).send('Invalid username or password')
+  }
 });
 
 app.listen(3000, () => {

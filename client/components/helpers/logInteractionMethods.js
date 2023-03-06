@@ -28,8 +28,9 @@ export const updateRecord = async (e) => {
   return parsedResult;
 };
 
-export const fetchRecords = async () => {
-  const data = await fetch('/log');
+export const fetchRecords = async (user_id) => {
+  // console.log('fetch records?', user_id)
+  const data = await fetch('/log', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ user_id: user_id }) });
   const parsedData = await data.json();
   return parsedData;
 };

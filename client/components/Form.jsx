@@ -1,8 +1,13 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useRef } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { clearInputs, validateInputs } from './helpers/formInputMethods';
 
 const Form = () => {
+  const location = useLocation();
+  let { user_id } = location?.state;
+  const activeUser = useRef(user_id)
+  console.log('act: ', activeUser.current)
+
 
   const tradeLogSuccess = () => {
     window.alert('Trade has been logged.');
@@ -66,7 +71,7 @@ const Form = () => {
           checkSubmission ? tradeLogSuccess() : tradeLogFailure();
         }}>Add</button>
       </form>
-      <Link to='log'>
+      <Link to="log" state={{ user_id: activeUser.current }}>
         <button id="logbutton">View Trading Log</button>
       </Link>
       <Link to='/'>

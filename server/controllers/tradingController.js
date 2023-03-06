@@ -15,9 +15,12 @@ tradingController.addTrade = (req, res, next) => {
 };
 
 tradingController.viewTrades = (req, res, next) => {
-  const dbQuery = `select * from public.trading order by _id desc`;
+  const {user_id} = req.body;
+  const dbQuery = `select * from public.trading where user_id = '${user_id}' order by _id desc`;
+  console.log('trading controller?')
   db.query(dbQuery)
     .then(data => {
+      console.log('DATA: ', data)
       res.locals.results = data;
       return next();
     });

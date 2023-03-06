@@ -1,21 +1,25 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const UserInfoAccess = ({ loginContainer, setLoginContainer, registerContainer, setRegisterContainer, setting }) => {
+  const navigate = useNavigate();
   return (
     <div class="loginContainer">
-      <form class="loginForm" 
-      onSubmit={async (e) => {
-        e.preventDefault()
-        const result = await fetch(setting, { method: 'POST', headers: { 'Content-Type': 'application/json' }, /*body: JSON.stringify({ id: item })*/ });
-        console.log('result: ', result)
-        console.log('loginContainer: ', loginContainer)
-        console.log('registerContainer: ', registerContainer)
-        setting === '/authenticate-user'
-        ? setLoginContainer(!loginContainer)
-        : setRegisterContainer(!registerContainer)
-      }
-      }
+      <form class="loginForm"
+        onSubmit={async (e) => {
+          e.preventDefault()
+          if (setting === '/authenticate-user') {
+            const result = await fetch(setting, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ username: e.target[0].value, password: e.target[1].value }) });
+            if (result.status === 200) {
+              const parsedResult = await result.json();
+              navigate('homepage', { state: { user_id: parsedResult[0].user_id } })
+            }
+            else {
+              window.alert('Invalid username or password. Please try again.')
+            }
+          }
+        }
+        }
       >
         <input
           id="username"
@@ -44,9 +48,7 @@ const UserInfoAccess = ({ loginContainer, setLoginContainer, registerContainer, 
           ?
           <button id="registerButton" type="submit">register</button>
           :
-          // <Link to='homepage'>
           <button id="loginButton" type="submit">log in</button>
-          // </Link>
         }
         {registerContainer
           ? <button id="backButton" onClick={() => setRegisterContainer(!registerContainer)}>back</button>
