@@ -2,10 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
 
 body {
-    background: #ef830f;
-  }
+  background: #ef830f;
+}
 
-  
+
 html {
   font-size: 1vw;
   font-family: 'Poppins', sans-serif;
@@ -19,11 +19,11 @@ body {
 }
 
 #app {
-  text-align:center;   
+  text-align: center;
 }
 
 h1 {
-  text-align:center;
+  text-align: center;
   font-size: 4vw;
   font-family: 'Fjalla One', sans-serif;
 }
@@ -44,7 +44,7 @@ h1 {
   height: 100%;
 }
 
-#logbutton:hover{
+#logbutton:hover {
   background-color: #63a4ff;
   border: 2px solid #7ee8fa;
   color: white;
@@ -52,7 +52,7 @@ h1 {
   cursor: pointer;
 }
 
-#logbutton{
+#logbutton {
   background-color: #63d471;
   border-radius: 3px;
   margin: 2px;
@@ -62,7 +62,7 @@ h1 {
   transition: all 0.5s ease;
 }
 
-#logOut:hover{
+#logOut:hover {
   background-color: #63a4ff;
   border: 2px solid #7ee8fa;
   color: white;
@@ -70,7 +70,7 @@ h1 {
   cursor: pointer;
 }
 
-#logOut{
+#logOut {
   background-color: #63d471;
   border-radius: 3px;
   margin: 2px;
@@ -81,7 +81,7 @@ h1 {
   left: 50%;
 }
 
-#add:hover{
+#add:hover {
   background-color: #63a4ff;
   border: 2px solid #7ee8fa;
   color: white;
@@ -89,7 +89,7 @@ h1 {
   cursor: pointer;
 }
 
-#add{
+#add {
   background-color: #63d471;
   border-radius: 3px;
   margin: 2px;
@@ -99,14 +99,18 @@ h1 {
   transition: all 0.5s ease;
 }
 
-#position, #numcontracts, #strategy, #datebtosto, #datebtcstc {
-font-size: 1.1vw;
-font-family: 'Poppins', sans-serif;
-cursor: pointer;
+#position,
+#numcontracts,
+#strategy,
+#datebtosto,
+#datebtcstc {
+  font-size: 1.1vw;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
 }
 
 
-#homebuttonmain:hover{
+#homebuttonmain:hover {
   background-color: #63a4ff;
   border: 2px solid #7ee8fa;
   color: white;
@@ -114,7 +118,7 @@ cursor: pointer;
   cursor: pointer;
 }
 
-#homebuttonmain{
+#homebuttonmain {
   background-color: #63d471;
   border-radius: 3px;
   margin: 2px;
@@ -127,7 +131,7 @@ cursor: pointer;
   position: absolute;
 }
 
-#registerbuttonmain:hover{
+#registerbuttonmain:hover {
   background-color: #63a4ff;
   border: 2px solid #7ee8fa;
   color: white;
@@ -135,7 +139,7 @@ cursor: pointer;
   cursor: pointer;
 }
 
-#registerbuttonmain{
+#registerbuttonmain {
   background-color: #63d471;
   border-radius: 3px;
   margin: 2px;
@@ -148,7 +152,7 @@ cursor: pointer;
   position: absolute;
 }
 
-#homebutton:hover{
+#homebutton:hover {
   background-color: #63a4ff;
   border: 2px solid #7ee8fa;
   color: white;
@@ -156,7 +160,7 @@ cursor: pointer;
   cursor: pointer;
 }
 
-#homebutton{
+#homebutton {
   background-color: #63d471;
   border-radius: 3px;
   margin: 2px;
@@ -177,14 +181,14 @@ cursor: pointer;
   width: calc(100%/6);
 }
 
-.btn:hover{
+.btn:hover {
   background-color: #fe0000;
   color: white;
   border-radius: 3px;
   cursor: pointer;
 }
 
-#getstarted:hover{
+#getstarted:hover {
   background-color: #63a4ff;
   border: 2px solid #7ee8fa;
   color: white;
@@ -192,7 +196,7 @@ cursor: pointer;
   cursor: pointer;
 }
 
-#getstarted{
+#getstarted {
   position: absolute;
   display: inline-block;
   top: 50%;
@@ -206,25 +210,27 @@ cursor: pointer;
 
 #myVideo {
   object-fit: fill;
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
 }
 
-.video-container{
+.video-container {
   position: relative;
 }
 
-.loginContainer{
-  position: absolute;
-  display: inline-block;
-  top: 50%;
+.loginContainer {
+  position: fixed;
+  overflow-y: scroll;
+  height: 100%;
   bottom: 0;
   left: 0;
   right: 0;
 }
 
-.loginForm{
+.loginForm {
+  position: relative;
   display: inline-grid;
+  top: calc(100% - 55vh);
 }
 
 .caption1 {
@@ -240,21 +246,24 @@ cursor: pointer;
 }
 
 .caption2 {
-  font: 16px/1 Helvetica; /* Reset the font property */
+  font: 16px/1 Helvetica;
+  /* Reset the font property */
   display: inline-block;
   vertical-align: middle;
-  text-align:middle;
+  text-align: middle;
   width: 100%;
 }
 
 table {
   width: 100%;
-  display:block;
+  display: block;
 }
+
 thead {
   display: inline-block;
   width: 100%;
 }
+
 tbody {
   display: inline-block;
   width: 100%;
@@ -272,4 +281,67 @@ td {
 th {
   display: inherit;
   width: calc(100%/7);
+}
+
+#username {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#password {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#confirmPassword{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#loginButton{
+  width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#registerButton{
+  width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#backButton{
+  width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
