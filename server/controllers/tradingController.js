@@ -1,9 +1,9 @@
 const db = require('../models/model'); 
 const https = require('https');
 
-const controller = {};
+const tradingController = {};
 
-controller.addTrade = (req, res, next) => {
+tradingController.addTrade = (req, res, next) => {
     const {Position, NumContracts, Strategy, DateBTOSTO, DateBTCSTC} = req.body;
   const addChar =   
     `INSERT INTO public.trading (position, numcontracts, strategy, datebtosto, datebtcstc)
@@ -14,7 +14,7 @@ controller.addTrade = (req, res, next) => {
     });
 };
 
-controller.viewTrades = (req, res, next) => {
+tradingController.viewTrades = (req, res, next) => {
   const dbQuery = `select * from public.trading order by _id desc`;
   db.query(dbQuery)
     .then(data => {
@@ -23,7 +23,7 @@ controller.viewTrades = (req, res, next) => {
     });
 };
 
-controller.deleteTrade = (req, res, next) => {
+tradingController.deleteTrade = (req, res, next) => {
   const deleteQuery = `DELETE FROM public.trading WHERE _id = ${req.body.id};`
   db.query(deleteQuery)
   .then(data => {
@@ -31,7 +31,7 @@ controller.deleteTrade = (req, res, next) => {
   });
 };
 
-controller.updateTrade = (req, res, next) => {
+tradingController.updateTrade = (req, res, next) => {
   const updateQuery = 
   `UPDATE public.trading
   SET ${req.body.columnName} = '${req.body.text}'
@@ -42,4 +42,4 @@ controller.updateTrade = (req, res, next) => {
   });
  };
 
-module.exports = controller;
+module.exports = tradingController;

@@ -15,12 +15,14 @@ const Homepage = () => {
         <UserInfoAccess
           loginContainer={loginContainer}
           setLoginContainer={setLoginContainer}
+          setting={'/authenticate-user'}
         />
         : registerContainer
           ?
           <UserInfoAccess
             registerContainer={registerContainer}
             setRegisterContainer={setRegisterContainer}
+            setting={'/register-user'}
           />
           :
           <div class="caption1">
