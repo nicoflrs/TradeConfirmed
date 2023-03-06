@@ -2,17 +2,18 @@ import React, { useEffect, useState } from 'react';
 import TradingData from './TradingData.jsx';
 import ReturnButton from './ReturnButton.jsx'
 import { fetchRecords } from './helpers/logInteractionMethods';
+import Cookies from 'js-cookie';
 
 const Log = () => {
   const [result, setResult] = useState([]);
 
   useEffect(() => {
     (async () => {
-      const data = await fetchRecords()
+      const user_id = Cookies.get('user')
+      const data = await fetchRecords(user_id)
       setResult(data);    
     })()
   }, []);
-
   return !result.length
     ? (
       <div id="notrades">
