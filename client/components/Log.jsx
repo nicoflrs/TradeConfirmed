@@ -1,27 +1,20 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import TradingData from './TradingData.jsx';
 import ReturnButton from './ReturnButton.jsx'
 import { fetchRecords } from './helpers/logInteractionMethods';
+import Cookies from 'js-cookie';
 
 const Log = () => {
-  const location = useLocation();
-  console.log('location: ', location)
-  let { user_id } = location?.state;
   const [result, setResult] = useState([]);
-  console.log(result)
-  // const activeUser = useRef(user_id)
 
   useEffect(() => {
     (async () => {
-      // console.log('useeffect? ', user_id)
+      const user_id = Cookies.get('user')
       const data = await fetchRecords(user_id)
-      console.log('data: ', data)
       setResult(data);    
     })()
   }, []);
-
-  return !result?.length
+  return !result.length
     ? (
       <div id="notrades">
         You have no trades logged.&nbsp;
@@ -40,7 +33,10 @@ const Log = () => {
               <th>Date of BTC/STC</th>
             </tr>
           </thead>
-          <TradingData/>
+          <TradingData
+            result={result}
+            setResult={setResult}
+          />
         </table>
         <br />
         <ReturnButton />

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie'
 
 const UserInfoAccess = ({ loginContainer, setLoginContainer, registerContainer, setRegisterContainer, setting }) => {
   const navigate = useNavigate();
@@ -12,7 +13,8 @@ const UserInfoAccess = ({ loginContainer, setLoginContainer, registerContainer, 
             const result = await fetch(setting, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ username: e.target[0].value, password: e.target[1].value }) });
             if (result.status === 200) {
               const parsedResult = await result.json();
-              navigate('homepage', { state: { user_id: parsedResult[0].user_id } })
+              Cookies.set('user', parsedResult[0].user_id)
+              navigate('homepage')
             }
             else {
               window.alert('Invalid username or password. Please try again.')

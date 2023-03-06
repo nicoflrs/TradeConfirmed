@@ -1,16 +1,12 @@
-import React, { useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { clearInputs, validateInputs } from './helpers/formInputMethods';
+import Cookies from 'js-cookie';
 
 const Form = () => {
-  const location = useLocation();
-  let { user_id } = location?.state;
-  const activeUser = useRef(user_id)
-  console.log('act: ', activeUser.current)
-
-
   const tradeLogSuccess = () => {
     window.alert('Trade has been logged.');
+    console.log('HIT')
     clearInputs();
   };
 
@@ -22,7 +18,18 @@ const Form = () => {
     <div id="inputs">
       <h1>Options Tracker</h1>
       <h2>Please Enter Inputs Below...</h2>
-      <form method="POST" action="/submit-form">
+      <form onSubmit={async (e) => {
+        e.preventDefault()
+        const checkSubmission = validateInputs();
+        if (checkSubmission) {
+          tradeLogSuccess()
+          const user = Cookies.get('user');
+          await fetch('/submit-form', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ Position: e.target[0].value, NumContracts: e.target[1].value, Strategy: e.target[2].value, DateBTOSTO: e.target[3].value, DateBTCSTC: e.target[4].value, user_id: user, }) })
+        }
+        else {
+          tradeLogFailure();
+        }
+      }}>
         <input
           id="position"
           type='text'
@@ -66,16 +73,15 @@ const Form = () => {
           class="form-control"
           onfocus="(this.type='date')" onblur="(this.type='text')"
         />
-        <button id="add" type="submit" onClick={() => {
-          const checkSubmission = validateInputs();
-          checkSubmission ? tradeLogSuccess() : tradeLogFailure();
-        }}>Add</button>
+        <button id="add" type="submit">Add</button>
       </form>
-      <Link to="log" state={{ user_id: activeUser.current }}>
+      <Link to="log">
         <button id="logbutton">View Trading Log</button>
       </Link>
       <Link to='/'>
-        <button id='logOut'>Log out</button>
+        <button id='logOut' onClick={() => {
+          Cookies.remove('user')
+        }}>Log out</button>
       </Link>
     </div>
   );
