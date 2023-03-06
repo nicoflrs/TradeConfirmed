@@ -6,7 +6,6 @@ import Cookies from 'js-cookie';
 const Form = () => {
   const tradeLogSuccess = () => {
     window.alert('Trade has been logged.');
-    console.log('HIT')
     clearInputs();
   };
 

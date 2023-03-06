@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 
 /*TRADING CONTROLLER*/
 app.post('/submit-form', tradingController.addTrade, (req, res) => {
-  console.log('Success!')
+  res.status(200).send('User has submitted transaction.')
 });
 
 app.post('/log', tradingController.viewTrades, (req, res) => {
@@ -35,7 +35,7 @@ app.put('/update', tradingController.updateTrade, tradingController.viewTrades, 
 
 /*LOGIN CONTROLLER*/
 app.post('/register-user', loginController.registerUser, (req, res) => {
-  return res.send(res);
+  return res.status(200).send('User has been registered!');
 });
 
 app.post('/authenticate-user', loginController.authenticateUser, (req, res) => {

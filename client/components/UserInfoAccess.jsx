@@ -20,6 +20,17 @@ const UserInfoAccess = ({ loginContainer, setLoginContainer, registerContainer, 
               window.alert('Invalid username or password. Please try again.')
             }
           }
+          else if (setting === '/register-user') {
+            if (e.target[1].value !== e.target[2].value) {
+              window.alert('Passwords do not match. Please try again.');
+              return;
+            }
+            const result = await fetch(setting, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ username: e.target[0].value, password: e.target[1].value }) });
+            if (result.status === 200) {
+              window.alert('User has been registered!')
+              setRegisterContainer(!registerContainer)
+            }
+          }
         }
         }
       >

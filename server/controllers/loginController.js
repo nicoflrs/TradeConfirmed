@@ -3,8 +3,13 @@ const db = require('../models/model');
 const loginController = {};
 
 loginController.registerUser = (req, res, next) => {
-  console.log('registerUser!')
-  return next();
+  const { username, password } = req.body
+  const dbQuery = `INSERT INTO public.accounts (username, password)
+  VALUES ('${username}', '${password}')`;
+  db.query(dbQuery)
+  .then(data => {
+    return next();
+  });
 }
 
 loginController.authenticateUser = (req, res, next) => {
