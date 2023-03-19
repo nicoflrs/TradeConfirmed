@@ -8,7 +8,7 @@
 <p>TradeConfirmed is a web-based trading log app that allows you to document your previous investment transactions.</p>
     <h2>Features</h2>
     <ul>
-      <li>Secure user authentication</li>
+      <li>Secure user authentication and registration</li>
       <li>Log buy and sell orders</li>
       <li>View and edit previously logged orders</li>
     </ul>
