@@ -9,7 +9,7 @@
     <h2>Features</h2>
     <ul>
       <li>Secure user authentication</li>
-      <li>Submit buy and sell orders that you had just made</li>
+      <li>Log buy and sell orders</li>
       <li>View and edit previously logged orders</li>
     </ul>
     <h2>Getting Started</h2>
