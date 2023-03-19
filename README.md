@@ -24,7 +24,7 @@
     <p>If you'd like to contribute to TradeConfirmed, please follow these steps:</p>
     <ol>
       <li>Fork this repository</li>
-      <li>Create a new branch for your feature or bug fix. Your branch must start with the prefix 'chore'.</li>
+      <li>Create a new branch for your feature or bug fix</li>
       <li>Make your changes and test them thoroughly</li>
       <li>Submit a pull request with a clear description of your changes</li>
     </ol>
