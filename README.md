@@ -21,7 +21,6 @@
       <li>Run the app using the <code>npm run start</code> command</li>
       <li>Open your browser and navigate to <a href="http://localhost:3000">http://localhost:3000</a> or visit <a href="https://tradeconfirmed.onrender.com/">https://tradeconfirmed.onrender.com/</a> to use the hosted version</li>
     </ol>
-    <h2>Usage</h2>
     <h2>Contributing</h2>
     <p>If you'd like to contribute to TradeConfirmed, please follow these steps:</p>
     <ol>
