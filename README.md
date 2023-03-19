@@ -16,7 +16,7 @@
     <p>To use TradeConfirmed, follow these steps:</p>
     <ol>
       <li>Clone this repository to your local machine</li>
-      <li>Build the bundle file and install dependencies using <code>npm run build</code> command</li>
+      <li>Build the bundle file and install dependencies using the <code>npm run build</code> command</li>
       <li>Run the app using the <code>npm run start</code> command</li>
       <li>Open your browser and navigate to <a href="http://localhost:3000">http://localhost:3000</a> or visit <a href="https://tradeconfirmed.onrender.com/">https://tradeconfirmed.onrender.com/</a> to use the hosted version</li>
     </ol>
