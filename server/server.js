@@ -16,6 +16,11 @@ app.get('/', (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, '../build/index.html'));
 });
 
+// Catch-all route handler for other routes
+app.get('*', (req, res) => {
+  res.redirect('/')
+});
+
 /*TRADING CONTROLLER*/
 app.post('/submit-form', tradingController.addTrade, (req, res) => {
   res.status(200).send('User has submitted transaction.')
@@ -47,6 +52,7 @@ app.post('/authenticate-user', loginController.authenticateUser, (req, res) => {
   }
 });
 
+/*SERVER*/
 app.listen(3000, () => {
   console.log("listening on port 3000");
 });

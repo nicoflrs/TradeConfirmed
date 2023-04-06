@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { env } = require('process')
+const { env } = require('process');
 
 module.exports = {
   mode: env.NODE_ENV,
@@ -14,17 +14,16 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
+    publicPath: '/',
   },
+  devtool: 'inline-source-map',
   devServer: {
     static: {
       directory: path.resolve(__dirname, 'build'),
       publicPath: '/build',
-    }
-    ,
+    },
     proxy: {
       '/': 'http://localhost:3000',
-      '/homepage': 'http://localhost:3000',
-      '/log': 'http://localhost:3000'
     },
   },
   module: {
@@ -54,4 +53,4 @@ module.exports = {
       }
     ]
   }
-}
+};

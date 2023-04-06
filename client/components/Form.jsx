@@ -74,7 +74,7 @@ const Form = () => {
         />
         <button id="add" type="submit">Add</button>
       </form>
-      <Link to="log">
+      <Link to="/homepage/log">
         <button id="logbutton">View Trading Log</button>
       </Link>
       <Link to='/'>

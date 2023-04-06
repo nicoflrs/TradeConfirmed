@@ -14,6 +14,7 @@ const Log = () => {
       setResult(data);    
     })()
   }, []);
+
   return !result.length
     ? (
       <div id="notrades">

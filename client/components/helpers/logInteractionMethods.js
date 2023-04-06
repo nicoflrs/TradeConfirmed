@@ -14,7 +14,7 @@ export const updateRecord = async (e) => {
   const parentID = e.target.parentNode.id;
   const clientInput = window.prompt('Please update the selected field with a new input.');
 
-  if (clientInput === '') {
+  if (clientInput === '' || clientInput === null) {
     window.alert('Error - user did not submit an updated entry. Please try again.')
     return;
   };
