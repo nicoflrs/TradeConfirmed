@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import backgroundVideo from '../media/video.mp4';
 import UserInfoAccess from './UserInfoAccess.jsx';
+import Cookies from 'js-cookie';
 
 const Homepage = () => {
   const [loginContainer, setLoginContainer] = useState(false)
   const [registerContainer, setRegisterContainer] = useState(false)
+
+  useEffect(() => {
+    const user = Cookies.get('user')
+    user && Cookies.remove('user')
+  }, []);
+
   return (
     <div class="video-container">
       <video autoPlay muted loop id="myVideo">
