@@ -15,7 +15,7 @@ const Form = () => {
 
   return (
     <div id="inputs">
-      <h1>Options Tracker</h1>
+      <h1>TradeConfirmed</h1>
       <h2>Please Enter Inputs Below...</h2>
       <form onSubmit={async (e) => {
         e.preventDefault()

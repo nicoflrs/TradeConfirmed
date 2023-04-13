@@ -33,7 +33,7 @@ const Homepage = () => {
           />
           :
           <div class="caption1">
-            welcome to options tracker.
+            welcome to tradeconfirmed.
             <div class="caption2">
               <button id="homebuttonmain" onClick={() => setLoginContainer(!loginContainer)}>log in</button>
               <button id="registerbuttonmain" onClick={() => setRegisterContainer(!registerContainer)}>register</button>
